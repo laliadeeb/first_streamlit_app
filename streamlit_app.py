@@ -21,7 +21,8 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 # Let's put a pick list here so they can pick the fruit they want to include
 #streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'])
 # Let's put a pick list here so they can pick the fruit they want to include
-fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'])
+#fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'])
+fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), [''])
 fruits_to_show = my_fruit_list.loc[fruits_selected]
   
 #display the table on the page
@@ -60,7 +61,7 @@ streamlit.header("The Fruit Load List Contains:")
 streamlit.dataframe(my_data_rows)
 
 # Ask user what fruit to add 
-fruit_choice = streamlit.write('What fruit would you like to add?', add_my_fruit)
+fruit_choice = streamlit.write('What fruit would you like to add?')
 
 #my_cnx2 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 #my_cur2 = my_cnx2.cursor()
