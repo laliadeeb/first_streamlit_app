@@ -37,7 +37,7 @@ streamlit.write('The user entered ', fruit_choice)
 
 # Basic data request display
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon" + fruit_choice)  #add choice for 9.2
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)  #add choice for 9.2 removed watermelon
 # streamlit.text(fruityvice_response.json())  #just write the data to the screen
 
 # Better data request display:  take the json version of the response and normailize it - remove line #38 
