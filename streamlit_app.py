@@ -55,6 +55,6 @@ my_cur.execute("SELECT * from fruit_load_list")
 #my_data_row = my_cur.fetchone()                  -- for one row only - line 56: get all row in list table
 my_data_rows = my_cur.fetchall() 
 #streamlit.text("The Fruit Load List Contains:")  -- make it look nicer
-#streamlit.text(my_data_row)                      -- with frame
+#streamlit.text(my_data_row)                      -- with frame for all ROWS
 streamlit.header("The Fruit Load List Contains:")  
-streamlit.dataframe(my_data_row)
+streamlit.dataframe(my_data_rows)
