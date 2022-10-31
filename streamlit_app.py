@@ -31,8 +31,8 @@ streamlit.dataframe(fruits_to_show)
 
 # New Section to display fruityvice API Response
 streamlit.header('Fruityvice Fruit Advice!')
-fruit_choice = streamlit.text_input('What fruit would you like information about?', 'Kiwi')  #  added choice for 9.2
-streamlit.write('The user entered', fruit_choice)
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')  #  added choice for 9.2
+streamlit.write('The user entered ', fruit_choice)
 
 
 # Basic data request display
