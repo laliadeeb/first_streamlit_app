@@ -66,4 +66,4 @@ fruit_choice = streamlit.text_input('What fruit would you like to add?', 'Jackfr
 #my_cur2 = my_cnx2.cursor()
 #my_cur.execute("INSERT INTO pc_rivery_db.public.fruit_load_list values(fruit_choice)")
 
-streamlit.text('Thank you for adding ?' + fruit_choice)
+streamlit.text('Thank you for adding ' + fruit_choice)
