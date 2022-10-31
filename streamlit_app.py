@@ -101,10 +101,10 @@ def get_fruit_load_list():
 # Add a button to load the fruit
 if streamlit.button('Get Fruit Load List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-    my_data_row = get_fruit_load_list()
+    my_data_rows = get_fruit_load_list()
     streamlit.dataframe(my_data_rows)
 
-streamlit.stop()
+
 # Ask user what fruit to add 
 fruit_choice = streamlit.text_input('What fruit would you like to add?')
 
@@ -116,3 +116,4 @@ streamlit.write('Thanks you for adding:  ' , fruit_choice)
 
 # This will not work correctly, but just go with it for now
 my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
+
