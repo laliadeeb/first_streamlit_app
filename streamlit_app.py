@@ -58,3 +58,8 @@ my_data_rows = my_cur.fetchall()
 #streamlit.text(my_data_row)                      -- with frame for all ROWS
 streamlit.header("The Fruit Load List Contains:")  
 streamlit.dataframe(my_data_rows)
+
+# Ask user what fruit to add 
+streamlit.header("What fruit would you like to add?") 
+
+streamlit.header("Thank you for adding ") 
