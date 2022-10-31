@@ -73,7 +73,7 @@ except URLError as e:
 # END L12 error handling and Loop
 
 # Lession 12 add for DEBUGGING - Don't run anything past here while we troubleshoot
-#streamlit.stop()
+streamlit.stop()
 
 # Lesson 12 adding Snowflake connector using Pandas python
 #import snowflake.connector
