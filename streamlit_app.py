@@ -78,16 +78,31 @@ streamlit.stop()
 # Lesson 12 adding Snowflake connector using Pandas python
 #import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
+# L12 OLD Code 
+##my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+##my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-my_cur.execute("SELECT * from fruit_load_list")
+##my_cur.execute("SELECT * from fruit_load_list")
 #my_data_row = my_cur.fetchone()                  -- for one row only - line 56: get all row in list table
-my_data_rows = my_cur.fetchall() 
+##my_data_rows = my_cur.fetchall() 
 #streamlit.text("The Fruit Load List Contains:")  -- make it look nicer
 #streamlit.text(my_data_row)                      -- with frame for all ROWS
-streamlit.header("The Fruit Load List Contains:")  
-streamlit.dataframe(my_data_rows)
+##streamlit.header("The Fruit Load List Contains:")  
+##streamlit.dataframe(my_data_rows)
+# L12 OLD Code
+
+streamlit.header("The Fruit Load List Contains:") 
+# Snowflake-related functions
+def get_fruit_load_list():
+    with my_cnx.cursor() as my_cur:
+        my_cur.execute("SELECT * from fruit_load_list")
+        return my_cur.fetchall() 
+      
+# Add a button to load the fruit
+if streamlit.button('Get Fruit Load List'):
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+    my_data_row = get_fruit_load_list()
+    streamlit.dataframe(my_data_rows)
 
 # Ask user what fruit to add 
 fruit_choice = streamlit.text_input('What fruit would you like to add?')
