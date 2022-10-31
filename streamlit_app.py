@@ -73,7 +73,7 @@ except URLError as e:
 # END L12 error handling and Loop
 
 # Lession 12 add for DEBUGGING - Don't run anything past here while we troubleshoot
-streamlit.stop()
+#streamlit.stop()
 
 # Lesson 12 adding Snowflake connector using Pandas python
 #import snowflake.connector
@@ -104,6 +104,7 @@ if streamlit.button('Get Fruit Load List'):
     my_data_row = get_fruit_load_list()
     streamlit.dataframe(my_data_rows)
 
+streamlit.stop()
 # Ask user what fruit to add 
 fruit_choice = streamlit.text_input('What fruit would you like to add?')
 
