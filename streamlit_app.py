@@ -1,4 +1,10 @@
 import streamlit
+# Lession 12 adds
+import pandas                     
+import requests
+import snowflake.connector
+# new library for error handling
+from urllib.error import URLError 
 
 streamlit.title('My parents New Healthy Diner')
 
@@ -10,7 +16,7 @@ streamlit.text('🥑 HAvocado Toast')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
-import pandas
+#import pandas
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 #streamlit.dataframe(my_fruit_list)  -- first lesson
 my_fruit_list = my_fruit_list.set_index('Fruit')
@@ -36,7 +42,7 @@ streamlit.write('The user entered ', fruit_choice)
 
 
 # Basic data request display
-import requests
+#import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)  #add choice for 9.2 removed watermelon
 # streamlit.text(fruityvice_response.json())  #just write the data to the screen
 
@@ -45,8 +51,11 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # Output it the screen as a table
 streamlit.dataframe(fruityvice_normalized)
 
+# Lession 12 add for DEBUGGING - Don't run anything past here while we troubleshoot
+streamlit.stop()
+
 # Lesson 12 adding Snowflake connector using Pandas python
-import snowflake.connector
+#import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
